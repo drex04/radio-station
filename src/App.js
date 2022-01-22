@@ -51,8 +51,8 @@ function App() {
     let email = data.get("email");
     let password = data.get("password");
     const authentication = getAuth();
-    signInWithEmailAndPassword(authentication, email, password)
-      .then((response) => {
+    signInWithEmailAndPassword(authentication, email, password).then(
+      (response) => {
         console.log(response);
         navigate("/");
         sessionStorage.setItem(
@@ -60,7 +60,7 @@ function App() {
           response._tokenResponse.refreshToken
         );
       }
-      );
+    );
   };
 
   useEffect(() => {
@@ -89,7 +89,7 @@ function App() {
                   <SignIn
                     setEmail={setEmail}
                     setPassword={setPassword}
-                    handleSubmit={handleSubmitSignIn}
+                    handleSubmitSignIn={handleSubmitSignIn}
                   />
                 }
               />
@@ -100,7 +100,7 @@ function App() {
                   <SignUp
                     setEmail={setEmail}
                     setPassword={setPassword}
-                    handleSubmit={handleSubmitSignUp}
+                    handleSubmitSignUp={handleSubmitSignUp}
                   />
                 }
               />
