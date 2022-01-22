@@ -1,13 +1,29 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+    -webkit-font-smoothing: antialiased;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: YoungSerif;
+  src: url(./assets/YoungSerif-Regular.otf);
+}
+
+body {
+    font-family: "Lato"; 
+    color: #2A2826;
+    background-color: #F6F6F6;
+}
+
+h1 {
+    font-family: "YoungSerif"; 
+    color: #2A2826;
+}
+
+a {
+    color: #222328;
+    text-decoration: none;
+}
+
+.tnp-logo {
+    width: auto;
+    height: 35px;
 }
