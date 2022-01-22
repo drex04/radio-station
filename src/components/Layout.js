@@ -7,11 +7,13 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "../theme.js";
 
 
-export default function Layout() {
+export default function Layout(props) {
+  let authStatus = props.authStatus;
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <Header />
+        <Header authStatus={authStatus} />
         <Container>
           <Outlet />
         </Container>

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import tnpLogo from "../assets/tnp-logo.png";
 
 export default function Header(props) {
+  let authStatus = props.authStatus;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -41,30 +42,17 @@ export default function Header(props) {
               display: { xs: "none", md: "flex" },
             }}
           >
-            <NavLink to="/">
-              <Typography variant="h5">
-                Home
-              </Typography>
-            </NavLink>
             <NavLink to="archive">
-              <Typography variant="h5">
-                Archive
-              </Typography>
+              <Typography variant="h5">Archive</Typography>
             </NavLink>
             <NavLink to="blog">
-              <Typography variant="h5">
-                Blog
-              </Typography>
+              <Typography variant="h5">Blog</Typography>
             </NavLink>
             <NavLink to="about">
-              <Typography variant="h5">
-                About
-              </Typography>
+              <Typography variant="h5">About</Typography>
             </NavLink>
             <NavLink to="support">
-              <Typography variant="h5">
-                Support
-              </Typography>
+              <Typography variant="h5">Support</Typography>
             </NavLink>
           </Box>
 
@@ -72,7 +60,7 @@ export default function Header(props) {
             sx={{
               flexGrow: 1,
               justifyContent: "flex-end",
-              display: { xs: "flex", md: "none" },
+              display: { xs: "flex", md: "flex" },
             }}
           >
             <IconButton
@@ -103,22 +91,64 @@ export default function Header(props) {
                 display: { xs: "block", md: "block" },
               }}
             >
-              <MenuItem key="archive" onClick={handleCloseNavMenu}>
+              <MenuItem key="home" onClick={handleCloseNavMenu}>
+                <NavLink to="/">
+                  <Typography textAlign="center">Home</Typography>
+                </NavLink>
+              </MenuItem>
+
+              <MenuItem key="signin" onClick={handleCloseNavMenu}>
+                <NavLink to="signin">
+                  <Typography textAlign="center">Login</Typography>
+                </NavLink>
+              </MenuItem>
+
+              <MenuItem key="profile" onClick={handleCloseNavMenu}>
+                <NavLink to="profile">
+                  <Typography textAlign="center">Profile</Typography>
+                </NavLink>
+              </MenuItem>
+
+              <MenuItem
+                key="archive"
+                onClick={handleCloseNavMenu}
+                sx={{
+                  display: { md: "none" },
+                }}
+              >
                 <NavLink to="archive">
                   <Typography textAlign="center">Archive</Typography>
                 </NavLink>
               </MenuItem>
-              <MenuItem key="blog" onClick={handleCloseNavMenu}>
+              <MenuItem
+                key="blog"
+                onClick={handleCloseNavMenu}
+                sx={{
+                  display: { md: "none" },
+                }}
+              >
                 <NavLink to="blog">
                   <Typography textAlign="center">Blog</Typography>
                 </NavLink>
               </MenuItem>
-              <MenuItem key="about" onClick={handleCloseNavMenu}>
+              <MenuItem
+                key="about"
+                onClick={handleCloseNavMenu}
+                sx={{
+                  display: { md: "none" },
+                }}
+              >
                 <NavLink to="about">
                   <Typography textAlign="center">About</Typography>
                 </NavLink>
               </MenuItem>
-              <MenuItem key="support" onClick={handleCloseNavMenu}>
+              <MenuItem
+                key="support"
+                onClick={handleCloseNavMenu}
+                sx={{
+                  display: { md: "none" },
+                }}
+              >
                 <NavLink to="support">
                   <Typography textAlign="center">Support</Typography>
                 </NavLink>

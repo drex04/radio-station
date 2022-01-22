@@ -1,4 +1,3 @@
-import firebase from "firebase";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -23,3 +22,15 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+export function getFirebaseConfig() {
+  if (!firebaseConfig || !firebaseConfig.apiKey) {
+    throw new Error(
+      "No Firebase configuration object provided." +
+        "\n" +
+        "Add your web app's configuration object to firebase-config.js"
+    );
+  } else {
+    return firebaseConfig;
+  }
+}
