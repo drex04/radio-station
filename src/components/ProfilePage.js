@@ -13,9 +13,11 @@ export default function ProfilePage() {
     if (!authToken) {
       navigate("/signin");
     }
-  }, []);
+  }, [navigate]);
 
   return (
-    <div><h1>Welcome to your personal profile page!</h1></div>
-  )
+    <div>
+      <h1>Welcome to your personal profile page!</h1>
+    </div>
+  );
 }

@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 import tnpLogo from "../assets/tnp-logo.png";
 
 export default function Header(props) {
-  let authStatus = props.authStatus;
+  // let authStatus = props.authStatus;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
