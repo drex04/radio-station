@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { app } from "./firebase-config";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
 import Layout from "./components/Layout";
 import Homepage from "./components/Homepage";
 import SignIn from "./components/SignIn";
@@ -16,7 +10,7 @@ import Support from "./components/Support";
 import Chat from "./components/Chat";
 import ProfilePage from "./components/ProfilePage";
 import NotFound from "./components/NotFound";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./theme.js";
@@ -25,42 +19,19 @@ function App() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authStatus, setAuthStatus] = useState(false);
-  const navigate = useNavigate();
 
   const handleSubmitSignUp = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    let email = data.get("email");
-    let password = data.get("password");
-    const authentication = getAuth();
-    createUserWithEmailAndPassword(authentication, email, password).then(
-      (response) => {
-        console.log(response);
-        navigate("/");
-        sessionStorage.setItem(
-          "Auth Token",
-          response._tokenResponse.refreshToken
-        );
-      }
-    );
+    // const data = new FormData(event.currentTarget);
+    // let email = data.get("email");
+    // let password = data.get("password");
   };
 
   const handleSubmitSignIn = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    let email = data.get("email");
-    let password = data.get("password");
-    const authentication = getAuth();
-    signInWithEmailAndPassword(authentication, email, password).then(
-      (response) => {
-        console.log(response);
-        navigate("/");
-        sessionStorage.setItem(
-          "Auth Token",
-          response._tokenResponse.refreshToken
-        );
-      }
-    );
+    // const data = new FormData(event.currentTarget);
+    // let email = data.get("email");
+    // let password = data.get("password");
   };
 
   useEffect(() => {
@@ -87,6 +58,8 @@ function App() {
                 path="signin"
                 element={
                   <SignIn
+                    email={email}
+                    password={password}
                     setEmail={setEmail}
                     setPassword={setPassword}
                     handleSubmitSignIn={handleSubmitSignIn}
@@ -98,6 +71,8 @@ function App() {
                 path="signup"
                 element={
                   <SignUp
+                    email={email}
+                    password={password}
                     setEmail={setEmail}
                     setPassword={setPassword}
                     handleSubmitSignUp={handleSubmitSignUp}
