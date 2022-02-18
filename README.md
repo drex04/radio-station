@@ -4,9 +4,10 @@ This is a work-in-progress prototype of a website for an community-run internet 
 
 ## Project goals:
 
-- Fully responsive design
+- Responsive design
 - JWT server-side Authentication (user/password)
 - Blog page with blogpost create / update function for site moderators, delete function for site admins
+- Mollie payment integration for supporter donations
 - Bulk upload blogposts via JSON file for site admins
 - Auto-DJ soundcloud widget
 - Research Soundcloud <-> Archive user flow to see if it can be automated without access to Soundcloud API
@@ -20,7 +21,7 @@ This is a work-in-progress prototype of a website for an community-run internet 
 
 ## Proposed Architecture:
 
-![architecture diagram](./notes/arch_diagram_20220209.png)
+![architecture diagram](./notes/arch_diagram_20220213.png)
 
 ## Issue log for previous TNP website:
 
